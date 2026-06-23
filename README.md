@@ -2,86 +2,75 @@
 
 ## English
 
-This repository is a collection of code I wrote in VEX IQ Blocks.
+This repository stores VEX IQ Blocks exports (`.rbg`) converted to practical behavior modules.
 
-The files are `.rbg` exports from block projects, sorted by competition flow, movement, navigation, and path scripting.
+## What’s inside
 
-### How to use
+- `competition/` for competition-style task chains.
+- `motion/` for distance/encoder style movement.
+- `navigation/` for follow, reverse, and branching movement.
+- `paths/` for predefined path scripts.
+
+## How to use
 
 1. Open VEXcode Blocks.
 2. Import one `.rbg` file.
-3. Match motors and sensor ports in the project.
-4. Check distances, thresholds, and waits before running in match-like conditions.
+3. Check robot configuration in the embedded `<RobotConfiguration>` section and update ports if needed.
+4. Adjust speed, wait, and threshold constants before classroom demo or match test.
 
-### Detailed file catalog
+## Detailed catalog (English then Chinese per file)
 
-#### competition
-- `competition/complex-color-gate-task.rbg`  
-  A multi-step competition path sequence with alternate forward turns and timed waits. It also sets different motor speeds for different parts, useful as a complex task skeleton.
+### competition
+- `competition/complex-color-gate-task.rbg` — EN: Complex sequence export with mixed turning, forward movement, motor speed overrides, wait points, and color-sensor loops, including a repeat-until timeout block at the end. CN: 复杂任务链示例，包含转向/前进、速度覆盖、等待、颜色传感器循环判断和超时停止条件。
 
-#### motion
-- `motion/motor-encoder-stop-after-distance.rbg`  
-  Starts both motors and waits until right motor encoder reaches a target, then stops all motors. This is a distance-gated stop behavior.
-- `motion/empty-template.rbg`  
-  Empty template export with `task main()` only, used as a clean starting point for creating new Block programs.
+### motion
+- `motion/motor-encoder-stop-after-distance.rbg` — EN: Starts two motors and waits until the right motor encoder reaches the target distance, then calls `stopAllMotors()`. CN: 两侧电机启动并等待右轮编码器到达阈值后停机。
 
-#### navigation
-- `navigation/distance-based-forward-reverse.rbg`  
-  If front distance condition is within threshold, moves forward for one second; otherwise reverse for one second. Repeats forever. Useful for obstacle-aware reversal experiments.
-- `navigation/line-follow-basic.rbg`  
-  Simple grayscale-follow behavior with if/else: one motor stops while the other drives. This gives pivot-like correction on line boundaries.
-- `navigation/encoder-turn-step.rbg`  
-  Moves forward to one encoder threshold, performs a turn command, resets encoders, then continues. Useful for segmented path logic with movement checkpoints.
+### navigation
+- `navigation/distance-based-forward-reverse.rbg` — EN: Repeats forever; drives forward at distance threshold, otherwise runs reverse branch using two distance sensors and one-second timed moves. CN: 无限循环的距离判断驱动：按阈值执行前进/后退，适合基础避障。
+- `navigation/encoder-turn-step.rbg` — EN: Drives forward to encoder count, performs a left turn, resets encoders, then drives again. CN: 编码器门限驱动+左转+编码器清零的分段导航。
+- `navigation/line-follow-basic.rbg` — EN: Basic `if/else` line follow on grayscale: one side motor pauses while the other runs. CN: 经典循线if-else逻辑，按灰度阈值一侧停转。
 
-#### paths
-- `paths/sequence-left-forward.rbg`  
-  A repeated forward + turn chain, with multiple timing values. Suitable as a predefined path template.
-- `paths/turn-forward-sequence-long.rbg`  
-  Extended forward-turn chain variant for longer path sequencing.
+### paths
+- `paths/sequence-left-forward.rbg` — EN: Repeated forward + left-turn chain useful as a short predefined route pattern. CN: 预设的“前进-左转”路径连串模板。
+- `paths/turn-forward-sequence-long.rbg` — EN: Extended sequence for long paths with more forward segments, multiple left turns, and recovery right turns. CN: 增强版路径链，带更长直行段和多次转向。
 
-### License
+## Format notes
+
+Each `.rbg` contains both Blocks XML-like commands and embedded generated RobotC source inside a `<CSource>` block. Port names and speeds should be tuned for your robot.
+
+## License
 
 This repository is released under the MIT License. See [`LICENSE`](./LICENSE).
 
-
 ## 中文
 
-这是我编写的 VEX IQ Blocks 程序合集，按任务和行为模块整理，便于复用。
+这是我自己的 VEX IQ Blocks 程序合集，按模块分类，便于复用和对照修改。
 
-### 使用方法
+## 使用方式
 
 1. 打开 VEXcode Blocks。
-2. 每次导入一个 `.rbg` 文件。
-3. 匹配项目中的端口与电机。
-4. 运行前先校准距离、阈值和等待时间。
+2. 导入 `.rbg` 文件。
+3. 检查内嵌 `<RobotConfiguration>` 的端口映射并按你的机器人调整。
+4. 调整速度、等待时间和阈值后再上机测试。
 
-### 文件详细说明
+## 详细目录（先英文后中文）
 
-#### competition（比赛）
-- `competition/complex-color-gate-task.rbg`  
-  复杂动作链示例：包含前进、转向、不同电机速度和等待段，适合赛事流程拆解。
+### 赛事（competition）
+- `competition/complex-color-gate-task.rbg` — EN: A complex competition-like flow with repeated turns, timed waits, and color-based waiting states. CN: 赛事风格复杂流程，包含转向、时序、速度控制和颜色传感器等待条件。
 
-#### motion（运动）
-- `motion/motor-encoder-stop-after-distance.rbg`  
-  起步后依据右轮编码器达到指定距离停止。适合距离到达自动停车。
-- `motion/empty-template.rbg`  
-  空白模板，适合快速从块模式搭一个新任务。
+### 运动（motion）
+- `motion/motor-encoder-stop-after-distance.rbg` — EN: Moves both motors and halts when the encoder target is reached. CN: 两侧驱动启动，达到编码器阈值后停止。
 
-#### navigation（导航）
-- `navigation/distance-based-forward-reverse.rbg`  
-  按距离阈值在前进和后退之间切换，循环执行，适合基础避障或边界反转。
-- `navigation/line-follow-basic.rbg`  
-  基础循线 if/else：一侧停转一侧前进进行修正。
-- `navigation/encoder-turn-step.rbg`  
-  编码器阈值 + 转向动作组成的分段导航。
+### 导航（navigation）
+- `navigation/distance-based-forward-reverse.rbg` — EN: Distance-triggered forward/reverse alternation inside an infinite loop. CN: 距离阈值触发的前进与后退切换。
+- `navigation/encoder-turn-step.rbg` — EN: Encoder-driven forward-then-turn flow with resets between segments. CN: 编码器分段行驶+转向+重置。
+- `navigation/line-follow-basic.rbg` — EN: Basic line-follow block program using grayscale threshold and opposite motor strategy. CN: 灰度阈值简单循线。
 
-#### paths（路径）
-- `paths/sequence-left-forward.rbg`  
-  预先定义的前进与左转连续链。
-- `paths/turn-forward-sequence-long.rbg`  
-  适合走更长路径的前进-转向组合版。
+### 路径（paths）
+- `paths/sequence-left-forward.rbg` — EN: Compact left-turn and forward macro script for short demos. CN: 短路径演示的左转前进行组。
+- `paths/turn-forward-sequence-long.rbg` — EN: Long distance sequence variant for larger test fields. CN: 更长路径版本，适合大场景演示。
 
-### 开源许可
+## 开源许可
 
 本仓库使用 MIT 协议，详见 [`LICENSE`](./LICENSE)。
-
