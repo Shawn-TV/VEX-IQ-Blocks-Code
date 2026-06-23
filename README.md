@@ -21,19 +21,26 @@ This repository stores VEX IQ Blocks exports (`.rbg`) converted to practical beh
 ## Detailed catalog (English)
 
 ### competition
-- `competition/complex-color-gate-task.rbg` — Complex sequence export with mixed turning, forward movement, motor speed overrides, wait points, and color-sensor loops, including a repeat-until timeout block at the end.
+- `competition/complex-color-gate-task.rbg`
+  - Complex sequence export with mixed turning, forward movement, motor speed overrides, wait points, and color-sensor loops, including a repeat-until timeout block at the end.
 
 ### motion
-- `motion/motor-encoder-stop-after-distance.rbg` — Starts two motors and waits until the right motor encoder reaches the target distance, then calls `stopAllMotors()`.
+- `motion/motor-encoder-stop-after-distance.rbg`
+  - Starts two motors and waits until the right motor encoder reaches the target distance, then calls `stopAllMotors()`.
 
 ### navigation
-- `navigation/distance-based-forward-reverse.rbg` — Repeats forever; drives forward at distance threshold, otherwise runs reverse branch using two distance sensors and one-second timed moves.
-- `navigation/encoder-turn-step.rbg` — Drives forward to encoder count, performs a left turn, resets encoders, then drives again.
-- `navigation/line-follow-basic.rbg` — Basic `if/else` line follow on grayscale: one side motor pauses while the other runs.
+- `navigation/distance-based-forward-reverse.rbg`
+  - Repeats forever; drives forward at distance threshold, otherwise runs reverse branch using two distance sensors and one-second timed moves.
+- `navigation/encoder-turn-step.rbg`
+  - Drives forward to encoder count, performs a left turn, resets encoders, then drives again.
+- `navigation/line-follow-basic.rbg`
+  - Basic `if/else` line follow on grayscale: one side motor pauses while the other runs.
 
 ### paths
-- `paths/sequence-left-forward.rbg` — Repeated forward + left-turn chain useful as a short predefined route pattern.
-- `paths/turn-forward-sequence-long.rbg` — Extended sequence for long paths with more forward segments, multiple left turns, and recovery right turns.
+- `paths/sequence-left-forward.rbg`
+  - Repeated forward + left-turn chain useful as a short predefined route pattern.
+- `paths/turn-forward-sequence-long.rbg`
+  - Extended sequence for long paths with more forward segments, multiple left turns, and recovery right turns.
 
 ## Format notes
 
@@ -57,19 +64,26 @@ This repository is released under the MIT License. See [`LICENSE`](./LICENSE).
 ## 详细目录（中文）
 
 ### 赛事（competition）
-- `competition/complex-color-gate-task.rbg` — 赛事风格复杂流程，包含转向、时序、速度控制和颜色传感器等待条件。
+- `competition/complex-color-gate-task.rbg`
+  - 赛事风格复杂流程，包含转向、时序、速度控制和颜色传感器等待条件。
 
 ### 运动（motion）
-- `motion/motor-encoder-stop-after-distance.rbg` — 两侧驱动启动，达到编码器阈值后停止。
+- `motion/motor-encoder-stop-after-distance.rbg`
+  - 两侧驱动启动，达到编码器阈值后停止。
 
 ### 导航（navigation）
-- `navigation/distance-based-forward-reverse.rbg` — 距离阈值触发的前进与后退切换。
-- `navigation/encoder-turn-step.rbg` — 编码器分段行驶+转向+重置。
-- `navigation/line-follow-basic.rbg` — 灰度阈值简单循线。
+- `navigation/distance-based-forward-reverse.rbg`
+  - 距离阈值触发的前进与后退切换。
+- `navigation/encoder-turn-step.rbg`
+  - 编码器分段行驶+转向+重置。
+- `navigation/line-follow-basic.rbg`
+  - 灰度阈值简单循线。
 
 ### 路径（paths）
-- `paths/sequence-left-forward.rbg` — 短路径演示的左转前进行组。
-- `paths/turn-forward-sequence-long.rbg` — 更长路径版本，适合大场景演示。
+- `paths/sequence-left-forward.rbg`
+  - 短路径演示的左转前进行组。
+- `paths/turn-forward-sequence-long.rbg`
+  - 更长路径版本，适合大场景演示。
 
 ## 开源许可
 
