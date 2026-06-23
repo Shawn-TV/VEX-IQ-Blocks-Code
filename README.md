@@ -2,7 +2,7 @@
 
 ## English
 
-This repository is a collection of my personal VEX IQ Blocks programs saved as `.rbg` files.
+This repository is a collection of code I wrote in VEX IQ Blocks.
 
 It contains reusable logic blocks for navigation, motion, path scripting, and competition tasks.
 
@@ -51,7 +51,7 @@ All files in this repository are my own.
 
 ## 中文
 
-本仓库是我个人整理的 VEX IQ Blocks（`.rbg`）程序集合，用于记录可复用的图形化机器人行为逻辑。
+这是我编写的 VEX IQ Blocks 程序合集，按模块整理，可复用用于行为逻辑与任务流程搭建。
 
 内容覆盖导航、运动、路径序列和比赛任务模块，适合做课程复盘和动作复用。
 
