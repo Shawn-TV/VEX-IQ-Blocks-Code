@@ -4,40 +4,40 @@
 
 This repository is a collection of code I wrote in VEX IQ Blocks.
 
-It contains reusable logic blocks for navigation, motion, path scripting, and competition tasks.
+The files are `.rbg` exports from block projects, sorted by competition flow, movement, navigation, and path scripting.
 
 ### How to use
 
-1. Open the VEX IQ Blocks or VEXcode Blocks workspace.
-2. Import one `.rbg` file at a time.
-3. Configure motors and sensor ports in the block project to match your robot.
-4. Calibrate timing and threshold constants after importing.
+1. Open VEXcode Blocks.
+2. Import one `.rbg` file.
+3. Match motors and sensor ports in the project.
+4. Check distances, thresholds, and waits before running in match-like conditions.
 
-### How these files are organized
+### Detailed file catalog
 
 #### competition
 - `competition/complex-color-gate-task.rbg`  
-  Multi-step color-gate style competition routine.
+  A multi-step competition path sequence with alternate forward turns and timed waits. It also sets different motor speeds for different parts, useful as a complex task skeleton.
 
 #### motion
 - `motion/motor-encoder-stop-after-distance.rbg`  
-  Encoder distance stop behavior.
+  Starts both motors and waits until right motor encoder reaches a target, then stops all motors. This is a distance-gated stop behavior.
 - `motion/empty-template.rbg`  
-  Empty template for building new block routines.
+  Empty template export with `task main()` only, used as a clean starting point for creating new Block programs.
 
 #### navigation
 - `navigation/distance-based-forward-reverse.rbg`  
-  Distance-based forward and reverse flow.
+  If front distance condition is within threshold, moves forward for one second; otherwise reverse for one second. Repeats forever. Useful for obstacle-aware reversal experiments.
 - `navigation/line-follow-basic.rbg`  
-  Basic line following logic.
+  Simple grayscale-follow behavior with if/else: one motor stops while the other drives. This gives pivot-like correction on line boundaries.
 - `navigation/encoder-turn-step.rbg`  
-  Encoder-based turn-and-step sequence.
+  Moves forward to one encoder threshold, performs a turn command, resets encoders, then continues. Useful for segmented path logic with movement checkpoints.
 
 #### paths
 - `paths/sequence-left-forward.rbg`  
-  Left turn then forward sequence demonstration.
+  A repeated forward + turn chain, with multiple timing values. Suitable as a predefined path template.
 - `paths/turn-forward-sequence-long.rbg`  
-  Extended turn-forward chaining routine.
+  Extended forward-turn chain variant for longer path sequencing.
 
 ### License
 
@@ -51,46 +51,44 @@ All files in this repository are my own.
 
 ## 中文
 
-这是我编写的 VEX IQ Blocks 程序合集，按模块整理，可复用用于行为逻辑与任务流程搭建。
-
-内容覆盖导航、运动、路径序列和比赛任务模块，适合做课程复盘和动作复用。
+这是我编写的 VEX IQ Blocks 程序合集，按任务和行为模块整理，便于复用。
 
 ### 使用方法
 
-1. 打开 VEX IQ Blocks / VEXcode Blocks。
+1. 打开 VEXcode Blocks。
 2. 每次导入一个 `.rbg` 文件。
-3. 在项目里按实际接线调整电机和传感器端口。
-4. 运行前先做阈值与时间参数标定。
+3. 匹配项目中的端口与电机。
+4. 运行前先校准距离、阈值和等待时间。
 
-### 文件归类与作用
+### 文件详细说明
 
 #### competition（比赛）
 - `competition/complex-color-gate-task.rbg`  
-  复杂双色门任务风格的流程示例。
+  复杂动作链示例：包含前进、转向、不同电机速度和等待段，适合赛事流程拆解。
 
 #### motion（运动）
 - `motion/motor-encoder-stop-after-distance.rbg`  
-  编码器距离到达后的停机动作。
+  起步后依据右轮编码器达到指定距离停止。适合距离到达自动停车。
 - `motion/empty-template.rbg`  
-  空白模板，用于快速搭建新流程。
+  空白模板，适合快速从块模式搭一个新任务。
 
 #### navigation（导航）
 - `navigation/distance-based-forward-reverse.rbg`  
-  按距离切换前进/后退的流程。
+  按距离阈值在前进和后退之间切换，循环执行，适合基础避障或边界反转。
 - `navigation/line-follow-basic.rbg`  
-  基础循线逻辑。
+  基础循线 if/else：一侧停转一侧前进进行修正。
 - `navigation/encoder-turn-step.rbg`  
-  编码器驱动的转向与分步动作。
+  编码器阈值 + 转向动作组成的分段导航。
 
 #### paths（路径）
 - `paths/sequence-left-forward.rbg`  
-  左转后前进序列示例。
+  预先定义的前进与左转连续链。
 - `paths/turn-forward-sequence-long.rbg`  
-  长序列转向前进流程。
+  适合走更长路径的前进-转向组合版。
 
 ### 开源许可
 
-仓库使用 MIT 协议，详见 [`LICENSE`](./LICENSE)。
+本仓库使用 MIT 协议，详见 [`LICENSE`](./LICENSE)。
 
 ### 作者说明
 
