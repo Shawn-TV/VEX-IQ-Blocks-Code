@@ -43,11 +43,6 @@ The files are `.rbg` exports from block projects, sorted by competition flow, mo
 
 This repository is released under the MIT License. See [`LICENSE`](./LICENSE).
 
-### Author note
-
-All files in this repository are my own.
-
----
 
 ## 中文
 
@@ -90,6 +85,3 @@ All files in this repository are my own.
 
 本仓库使用 MIT 协议，详见 [`LICENSE`](./LICENSE)。
 
-### 作者说明
-
-本仓库文件全部由本人编写。
