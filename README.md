@@ -1,5 +1,7 @@
 # VEX-IQ-Blocks-Code
 
+中文说明在后面：[点击跳到中文部分](#中文)。
+
 ## English
 
 This repository stores VEX IQ Blocks / graphical programming exports that I wrote while working on VEX IQ movement, sensors, and simple autonomous routines.
